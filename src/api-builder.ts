@@ -1,4 +1,4 @@
-import * as z from "zod";
+import { z } from "zod";
 import { NextRequest, NextResponse } from "next/server";
 import { ApiError } from "./api-error";
 
@@ -229,7 +229,10 @@ export class ApiBuilder<
    */
   private createRouteHandler(
     method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE",
-    handler: (input: any) => Promise<any>
+    // (FIXED!) This now uses the class generics, so types flow through.
+    handler: (
+      input: HandlerInput<TContextSchema, TQuerySchema, TBodySchema, TContext>
+    ) => Promise<any>
   ) {
     // This is the actual Next.js route handler
     return async (
@@ -280,11 +283,16 @@ export class ApiBuilder<
         // --- 3. Handler ---
         const result = await handler({ ...inputBase, ctx: cumulativeCtx });
 
-        // --- 4. Success Response ---
+        // If handler returns a NextResponse, pass it through.
+        if (result instanceof NextResponse) {
+          return result;
+        }
+
+        // --- 5. Success Response ---
         const status = method === "POST" ? 201 : 200;
         return NextResponse.json(result, { status });
       } catch (error: unknown) {
-        // --- 5. Error Handling ---
+        // --- 6. Error Handling ---
         if (isNextJsInternalError(error)) {
           throw error;
         }
