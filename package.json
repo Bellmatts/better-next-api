@@ -1,6 +1,6 @@
 {
   "name": "better-next-api",
-  "version": "1.0.1-alpha.1",
+  "version": "1.0.1-alpha.2",
   "description": "A typesafe and structured way to build Next.js App Router API handlers. Get a tRPC-like developer experience with Zod validation and composable middleware, without leaving your standard API routes.",
   "type": "module",
   "exports": "./dist/index.js",
