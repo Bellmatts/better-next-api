@@ -1,0 +1,21 @@
+{
+  "name": "better-next-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "peerDependencies": {
+    "zod": "^4",
+    "next": "*"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "zod": "^4.1.12",
+    "next": "16.0.2"
+  }
+}
