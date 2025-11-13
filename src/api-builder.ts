@@ -229,7 +229,6 @@ export class ApiBuilder<
    */
   private createRouteHandler(
     method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE",
-    // (FIXED!) This now uses the class generics, so types flow through.
     handler: (
       input: HandlerInput<TContextSchema, TQuerySchema, TBodySchema, TContext>
     ) => Promise<any>
