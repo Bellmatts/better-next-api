@@ -8,4 +8,5 @@ export default defineConfig((options) => ({
   sourcemap: !!options.watch,
   clean: true,
   minify: !options.watch,
+  external: ["zod", "next"],
 }));

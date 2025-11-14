@@ -1,4 +1,4 @@
-import { ZodIssue } from "zod";
+import * as z from "zod";
 
 export type ApiErrorProps = {
   /**
@@ -18,7 +18,7 @@ export type ApiErrorProps = {
   /**
    * Optional Zod validation issues.
    */
-  issues?: ZodIssue[];
+  issues?: z.ZodIssue[];
 };
 
 /**
@@ -38,7 +38,7 @@ export type ApiErrorProps = {
 export class ApiError extends Error {
   public readonly code: number;
   public readonly type: string;
-  public readonly issues: ZodIssue[] | undefined;
+  public readonly issues: z.ZodIssue[] | undefined;
 
   constructor(props: ApiErrorProps) {
     super(props.message);

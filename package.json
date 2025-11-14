@@ -36,13 +36,13 @@
   "homepage": "https://github.com/programming-with-ia/better-next-api#readme",
   "peerDependencies": {
     "next": "*",
-    "zod": ">=3"
+    "zod": "^4"
   },
   "devDependencies": {
     "release-it": "^19.0.5",
     "next": "*",
     "tsup": "^8.0.2",
     "typescript": "^5.3.3",
-    "zod": ">=3"
+    "zod": "^4.1.12"
   }
 }
